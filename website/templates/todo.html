@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block title %}Todo{% endblock %} {% block content
+%}
+
+<h1>Todo</h1>
+
+<tr>
+    <td>
+        {% for note in all_notes %}
+        <li>{{ note.todo }}
+            <a href="./delete?_id={{ note['_id'] }}">
+                <button type="submit">
+
+                    <span aria-hidden="true">&times;</span>
+
+                </button>
+            </a>
+        </li>
+        {% endfor %}
+    </td>
+</tr>
+
+
+<form method="POST">
+    <p>
+        <b><label for="note">Todo content</label></b>
+    </p>
+    <p>
+        <input type="text" name="note" placeholder="Todo Content"></input>
+    </p>
+    <button type="submit">Add Todo</button>
+</form>
+
+{% endblock %}
